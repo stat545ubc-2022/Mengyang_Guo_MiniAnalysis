@@ -80,10 +80,10 @@ And that is exactly the first thing that you will do!
 
 <!-------------------------- Start your work below ---------------------------->
 
-| **1: *vancouver_trees*\
-  2: *steam_games*\
-  3: *cancer_sample*\
-  4: *flow_sample***
+| 1: `vancouver_trees`
+| 2: `steam_games`
+| 3:`cancer_sample`
+| 4: `flow_sample`
 
 <!----------------------------------------------------------------------------->
 
@@ -96,15 +96,18 @@ And that is exactly the first thing that you will do!
 ```{r}
 ### EXPLORE HERE ###
 
-### This tells use for cancer sample, there are 569 rows and 32 columns. ###
-### Only the diagnosis variable is a character varialble. Everything else is numeric###
-
-### I repeat this process for the rest of 3 data sets###
-
 glimpse(datateachr::cancer_sample)
-
+glimpse(datateachr::steam_games)
+glimpse(datateachr::vancouver_trees)
+glimpse(datateachr::flow_sample)
 
 ```
+
+-   **I use glimpse function for these sample.**
+
+-   **For cancer sample, I find that there are 569 rows and 32 columns. Only the diagnosis variable is a character varialble. Everything else is numeric.**
+
+-   **I repeat this process for the rest of 3 data sets.**
 
 <!----------------------------------------------------------------------------->
 
@@ -112,7 +115,11 @@ glimpse(datateachr::cancer_sample)
 
 <!-------------------------- Start your work below ---------------------------->
 
-| I would like to dig deeper into the vancouver_trees and the cancer_sample. I'm interested in vancouver trees because it has a lot of character variables for which I could perform textual analysis. I'm also interested in cancer_sample because I could use these factors in the data to predict a tumor's diagnosis.
+| **I would like to dig deeper into the vancouver_trees and the cancer_sample.**
+| 
+| **I'm interested in vancouver trees because it has a lot of character variables for which I could perform textual analysis.**
+| 
+| **I'm also interested in cancer_sample because I could use these factors in the data to predict a tumor's diagnosis.**
 
 <!----------------------------------------------------------------------------->
 
@@ -120,7 +127,7 @@ glimpse(datateachr::cancer_sample)
 
 <!-------------------------- Start your work below ---------------------------->
 
-| I would like to study the cancer_sample because it would allow me to explore what quantitative factors affect the tumor's diagnosis. The dataset already comes with the outcome variable, diagnosis, and some explanatory variables such as radius_mean, texture_mean.
+| **I would like to study the cancer_sample because it would allow me to explore what quantitative factors affect the tumor's diagnosis. The dataset already comes with the categorical outcome variable, diagnosis, and some explanatory quantitaitve variables such as radius_mean, texture_mean.**
 
 <!----------------------------------------------------------------------------->
 
@@ -160,24 +167,24 @@ cancer_sample %>%
 
 Looks like it is not normally distributed. Most tumors' radius is between 10-20.
 
-**Excercise 2: Any missing values?**
+**Excercise 2: Any missing values? Any missing values should be dropped. So I check missing value here**
 
 ```{r}
 any(is.na(cancer_sample))
 ```
 
-No, there is not any missing value. Good!
+No, there is not any missing value. Good to go!
 
-**Excercise 3: Filter observations to Malignant tumors**
+**Excercise 3: Filter observations to Malignant tumors.** I focus on Malignant tumors because I was wondering Malignant tumors' size
 
 ```{r}
 filter(cancer_sample,diagnosis == "M")
 
 ```
 
-I focus on Malignant tumors because I was wondering Malignant tumors' size
+Looks like bad tumor tends to be larger...
 
-**Excercise 4: Relationship between texture_mean and radius_mean**
+**Excercise 4: To explore the relationship between texture_mean and radius_mean, I plot these two variables with tumor diagnosis showing in different color.**
 
 ```{r}
 ggplot(cancer_sample, aes(x=texture_mean,y=radius_mean,colour=diagnosis))+
@@ -194,10 +201,10 @@ So far, you have chosen a dataset and gotten familiar with it through exploring 
 
 <!--- *****START HERE***** --->
 
-| Q1: Does the size of a tumor predicts whether it is malignant versus benign?
-| Q2: If yes, does the result driven by some extreme values of tumor size?
-| Q3: Does the smoothness of a tumor predicts whether it is malignant versus benign?
-| Q4: Which variable best predicts tumor?
+| **Q1: Does the size of a tumor predicts whether it is malignant versus benign?**
+| **Q2: If yes, is this relation mostly driven by some extreme values of tumor size?**
+| **Q3: Does the smoothness of a tumor predicts whether it is malignant versus benign?**
+| **Q4:** **Does non-smooth tumor is very likely to be benign tumor?**
 
 <!----------------------------->
 
@@ -230,9 +237,8 @@ Make sure it's clear what research question you are doing each operation for!
 <!------------------------- Start your work below ----------------------------->
 
 | **Q1: Does the size of a tumor predicts whether it is malignant versus benign?**
-| Summarizing:
-| What is the *range*, *mean*, median and standard deviation of t**he size of a tumor** across **malignant versus benign?** 
-| The *mean* across **malignant versus benign** can help explain whether it is related to tumor diagnosis.
+| *`Summarizing:`*
+| What is the *range*, *mean*, median and standard deviation of t**he size of a tumor** across **malignant versus benign?**
 
 ```{r}
 cancer_sample %>%
@@ -242,8 +248,10 @@ cancer_sample %>%
 
 ```
 
-| Graphing: 
-| I will create a graph, making one of the radius logarithmic, and formating the axes labels so that they are "pretty" or easier to read.
+| Looks like The *mean* across **malignant versus benign** can help explain whether it is related to tumor diagnosis. The size is smaller for benign tumor.
+| 
+| *`Graphing:`*
+| I will create a graph, making one of the radius logarithmic, and formatting the axes labels so that they are "pretty" or easier to read.
 
 ```{r}
 cancer_sample %>%
@@ -256,7 +264,7 @@ cancer_sample %>%
 | Yes, it seems that greater size is correlated with bad tumor
 | 
 | **Q2: Does the result driven by some extreme values of tumor size?**
-| Summarizing: 
+| *`Summarizing:`*
 | I will compute the number of observations for diagnosis outcome!
 
 ```{r}
@@ -264,7 +272,7 @@ summary(as.factor(cancer_sample$diagnosis))
 
 ```
 
-| Graphing: 
+| *`Graphing:`*
 | I will plot the (extreme) values of tumor size and customize the alpha transparency.
 
 ```{r}
@@ -275,8 +283,9 @@ ggplot(cancer_sample, aes(diagnosis, smoothness_mean)) +
 
 I find that the results are not driven by the extreme values.
 
-| **Q3:  Does the smoothness of a tumor predicts whether it is malignant versus benign?**
-| Summarizing:
+| **Q3: Does the smoothness of a tumor predicts whether it is malignant versus benign?**
+| 
+| *`Summarizing:`*
 
 ```{r}
 cancer_sample %>%
@@ -284,8 +293,9 @@ cancer_sample %>%
   summarise(smoothness_average=mean(smoothness_mean),smoothness_median=median(smoothness_mean),smoothness_range=range(smoothness_mean),smoothness_sd=sd(smoothness_mean))
 ```
 
+| It's very hard to tell whether the smoothness is associated with tumor diagnosis.
 | 
-| Graphing: 
+| *`Graphing:`*
 
 ```{r}
 ggplot(cancer_sample, aes( smoothness_mean,diagnosis)) +
@@ -293,12 +303,12 @@ ggplot(cancer_sample, aes( smoothness_mean,diagnosis)) +
 
 ```
 
-***It's very hard to tell whether the smoothness is associated with tumor diagnosis.***
+Again, from this plot, it's very hard to tell whether the smoothness is associated with tumor diagnosis.
 
-| **Q4: Does very smooth tumor associated with  diagnosis outcome?**
+| **Q4: Does non-smooth tumor is very likely to be benign?**
 
-| Summarizing:
-| I will create a categorical variable with 3  groups from smoothness --- "very smooth", "smooth", and "not smooth".
+| *`Summarizing:`*
+| I will create a categorical variable with 3 groups from smoothness --- "very smooth", "smooth", and "not smooth".
 
 ```{r}
 
@@ -324,7 +334,7 @@ ggplot(cancer_sample, aes(y=Smooth_category) ) + geom_bar(aes(fill=diagnosis), p
 
 ```
 
-| The result suggests that for ***non-smooth*** **tumor**, it is very unlikely to be **malignant.**
+| The result suggests that for ***non-smooth*** **tumor**, it is very likely to be **benign---a very good news to non smooth tumor patients.**
 
 <!----------------------------------------------------------------------------->
 
@@ -334,11 +344,11 @@ Based on the operations that you've completed, how much closer are you to answer
 
 <!-------------------------- Start your work below ---------------------------->
 
-I think I learned a lot from this data and closer to my questions
+**I think I learned a lot from this data and closer to my questions.**
 
-Research question four yields interesting results---it shows non-smooth tumor is very unlikely to be malignant. I think it is a good news for those patients having non-smooth tumor.
+**Research question 4 yields interesting results---it shows non-smooth tumor is very unlikely to be malignant. I think it is a good news for those patients having non-smooth tumor.**
 
-Some other things remain unclear. For example, since we have many predictors of tumor, they are highlycorrelated. Can we use just a few factors to describe these predictors?
+**Some other things remain unclear. For example, since we have many predictors of tumor, they are highly correlated. Can we use just a few factors to describe these predictors?**
 
 <!----------------------------------------------------------------------------->
 

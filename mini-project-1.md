@@ -140,8 +140,10 @@ understand your data.
 
 <!-------------------------- Start your work below ---------------------------->
 
-**1: *vancouver_trees*  2: *steam_games*  3: *cancer_sample*  4:
-*flow_sample***
+1: `vancouver_trees`  
+2: `steam_games`  
+3:`cancer_sample`  
+4: `flow_sample`
 
 <!----------------------------------------------------------------------------->
 
@@ -160,11 +162,6 @@ comments outside of the code chunk?
 
 ``` r
 ### EXPLORE HERE ###
-
-### This tells use for cancer sample, there are 569 rows and 32 columns. ###
-### Only the diagnosis variable is a character varialble. Everything else is numeric###
-
-### I repeat this process for the rest of 3 data sets###
 
 glimpse(datateachr::cancer_sample)
 ```
@@ -204,6 +201,83 @@ glimpse(datateachr::cancer_sample)
     ## $ symmetry_worst          <dbl> 0.4601, 0.2750, 0.3613, 0.6638, 0.2364, 0.3985…
     ## $ fractal_dimension_worst <dbl> 0.11890, 0.08902, 0.08758, 0.17300, 0.07678, 0…
 
+``` r
+glimpse(datateachr::steam_games)
+```
+
+    ## Rows: 40,833
+    ## Columns: 21
+    ## $ id                       <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14…
+    ## $ url                      <chr> "https://store.steampowered.com/app/379720/DO…
+    ## $ types                    <chr> "app", "app", "app", "app", "app", "bundle", …
+    ## $ name                     <chr> "DOOM", "PLAYERUNKNOWN'S BATTLEGROUNDS", "BAT…
+    ## $ desc_snippet             <chr> "Now includes all three premium DLC packs (Un…
+    ## $ recent_reviews           <chr> "Very Positive,(554),- 89% of the 554 user re…
+    ## $ all_reviews              <chr> "Very Positive,(42,550),- 92% of the 42,550 u…
+    ## $ release_date             <chr> "May 12, 2016", "Dec 21, 2017", "Apr 24, 2018…
+    ## $ developer                <chr> "id Software", "PUBG Corporation", "Harebrain…
+    ## $ publisher                <chr> "Bethesda Softworks,Bethesda Softworks", "PUB…
+    ## $ popular_tags             <chr> "FPS,Gore,Action,Demons,Shooter,First-Person,…
+    ## $ game_details             <chr> "Single-player,Multi-player,Co-op,Steam Achie…
+    ## $ languages                <chr> "English,French,Italian,German,Spanish - Spai…
+    ## $ achievements             <dbl> 54, 37, 128, NA, NA, NA, 51, 55, 34, 43, 72, …
+    ## $ genre                    <chr> "Action", "Action,Adventure,Massively Multipl…
+    ## $ game_description         <chr> "About This Game Developed by id software, th…
+    ## $ mature_content           <chr> NA, "Mature Content Description  The develope…
+    ## $ minimum_requirements     <chr> "Minimum:,OS:,Windows 7/8.1/10 (64-bit versio…
+    ## $ recommended_requirements <chr> "Recommended:,OS:,Windows 7/8.1/10 (64-bit ve…
+    ## $ original_price           <dbl> 19.99, 29.99, 39.99, 44.99, 0.00, NA, 59.99, …
+    ## $ discount_price           <dbl> 14.99, NA, NA, NA, NA, 35.18, 70.42, 17.58, N…
+
+``` r
+glimpse(datateachr::vancouver_trees)
+```
+
+    ## Rows: 146,611
+    ## Columns: 20
+    ## $ tree_id            <dbl> 149556, 149563, 149579, 149590, 149604, 149616, 149…
+    ## $ civic_number       <dbl> 494, 450, 4994, 858, 5032, 585, 4909, 4925, 4969, 7…
+    ## $ std_street         <chr> "W 58TH AV", "W 58TH AV", "WINDSOR ST", "E 39TH AV"…
+    ## $ genus_name         <chr> "ULMUS", "ZELKOVA", "STYRAX", "FRAXINUS", "ACER", "…
+    ## $ species_name       <chr> "AMERICANA", "SERRATA", "JAPONICA", "AMERICANA", "C…
+    ## $ cultivar_name      <chr> "BRANDON", NA, NA, "AUTUMN APPLAUSE", NA, "CHANTICL…
+    ## $ common_name        <chr> "BRANDON ELM", "JAPANESE ZELKOVA", "JAPANESE SNOWBE…
+    ## $ assigned           <chr> "N", "N", "N", "Y", "N", "N", "N", "N", "N", "N", "…
+    ## $ root_barrier       <chr> "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "…
+    ## $ plant_area         <chr> "N", "N", "4", "4", "4", "B", "6", "6", "3", "3", "…
+    ## $ on_street_block    <dbl> 400, 400, 4900, 800, 5000, 500, 4900, 4900, 4900, 7…
+    ## $ on_street          <chr> "W 58TH AV", "W 58TH AV", "WINDSOR ST", "E 39TH AV"…
+    ## $ neighbourhood_name <chr> "MARPOLE", "MARPOLE", "KENSINGTON-CEDAR COTTAGE", "…
+    ## $ street_side_name   <chr> "EVEN", "EVEN", "EVEN", "EVEN", "EVEN", "ODD", "ODD…
+    ## $ height_range_id    <dbl> 2, 4, 3, 4, 2, 2, 3, 3, 2, 2, 2, 5, 3, 2, 2, 2, 2, …
+    ## $ diameter           <dbl> 10.00, 10.00, 4.00, 18.00, 9.00, 5.00, 15.00, 14.00…
+    ## $ curb               <chr> "N", "N", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "…
+    ## $ date_planted       <date> 1999-01-13, 1996-05-31, 1993-11-22, 1996-04-29, 19…
+    ## $ longitude          <dbl> -123.1161, -123.1147, -123.0846, -123.0870, -123.08…
+    ## $ latitude           <dbl> 49.21776, 49.21776, 49.23938, 49.23469, 49.23894, 4…
+
+``` r
+glimpse(datateachr::flow_sample)
+```
+
+    ## Rows: 218
+    ## Columns: 7
+    ## $ station_id   <chr> "05BB001", "05BB001", "05BB001", "05BB001", "05BB001", "0…
+    ## $ year         <dbl> 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 191…
+    ## $ extreme_type <chr> "maximum", "maximum", "maximum", "maximum", "maximum", "m…
+    ## $ month        <dbl> 7, 6, 6, 8, 6, 6, 6, 6, 6, 6, 6, 7, 6, 6, 6, 7, 5, 7, 6, …
+    ## $ day          <dbl> 7, 12, 14, 25, 11, 18, 27, 20, 17, 15, 22, 3, 9, 5, 14, 5…
+    ## $ flow         <dbl> 314, 230, 264, 174, 232, 214, 236, 309, 174, 345, 185, 24…
+    ## $ sym          <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+
+- **I use glimpse function for these sample.**
+
+- **For cancer sample, I find that there are 569 rows and 32 columns.
+  Only the diagnosis variable is a character varialble. Everything else
+  is numeric.**
+
+- **I repeat this process for the rest of 3 data sets.**
+
 <!----------------------------------------------------------------------------->
 
 1.3 Now that you’ve explored the 4 datasets that you were initially most
@@ -213,11 +287,14 @@ in your explanation.
 
 <!-------------------------- Start your work below ---------------------------->
 
-I would like to dig deeper into the vancouver_trees and the
-cancer_sample. I’m interested in vancouver trees because it has a lot of
-character variables for which I could perform textual analysis. I’m also
-interested in cancer_sample because I could use these factors in the
-data to predict a tumor’s diagnosis.
+**I would like to dig deeper into the vancouver_trees and the
+cancer_sample.**  
+  
+**I’m interested in vancouver trees because it has a lot of character
+variables for which I could perform textual analysis.**  
+  
+**I’m also interested in cancer_sample because I could use these factors
+in the data to predict a tumor’s diagnosis.**
 
 <!----------------------------------------------------------------------------->
 
@@ -231,10 +308,11 @@ interesting to you!
 
 <!-------------------------- Start your work below ---------------------------->
 
-I would like to study the cancer_sample because it would allow me to
+**I would like to study the cancer_sample because it would allow me to
 explore what quantitative factors affect the tumor’s diagnosis. The
-dataset already comes with the outcome variable, diagnosis, and some
-explanatory variables such as radius_mean, texture_mean.
+dataset already comes with the categorical outcome variable, diagnosis,
+and some explanatory quantitaitve variables such as radius_mean,
+texture_mean.**
 
 <!----------------------------------------------------------------------------->
 
@@ -322,7 +400,8 @@ cancer_sample %>%
 Looks like it is not normally distributed. Most tumors’ radius is
 between 10-20.
 
-**Excercise 2: Any missing values?**
+**Excercise 2: Any missing values? Any missing values should be dropped.
+So I check missing value here**
 
 ``` r
 any(is.na(cancer_sample))
@@ -330,9 +409,10 @@ any(is.na(cancer_sample))
 
     ## [1] FALSE
 
-No, there is not any missing value. Good!
+No, there is not any missing value. Good to go!
 
-**Excercise 3: Filter observations to Malignant tumors**
+**Excercise 3: Filter observations to Malignant tumors.** I focus on
+Malignant tumors because I was wondering Malignant tumors’ size
 
 ``` r
 filter(cancer_sample,diagnosis == "M")
@@ -359,10 +439,11 @@ filter(cancer_sample,diagnosis == "M")
     ## #   texture_worst <dbl>, perimeter_worst <dbl>, area_worst <dbl>,
     ## #   smoothness_worst <dbl>, compactness_worst <dbl>, concavity_worst <dbl>, …
 
-I focus on Malignant tumors because I was wondering Malignant tumors’
-size
+Looks like bad tumor tends to be larger…
 
-**Excercise 4: Relationship between texture_mean and radius_mean**
+**Excercise 4: To explore the relationship between texture_mean and
+radius_mean, I plot these two variables with tumor diagnosis showing in
+different color.**
 
 ``` r
 ggplot(cancer_sample, aes(x=texture_mean,y=radius_mean,colour=diagnosis))+
@@ -388,13 +469,13 @@ rest of the project, or make modifications!
 
 <!--- *****START HERE***** --->
 
-Q1: Does the size of a tumor predicts whether it is malignant versus
-benign?  
-Q2: If yes, does the result driven by some extreme values of tumor
-size?  
-Q3: Does the smoothness of a tumor predicts whether it is malignant
-versus benign?  
-Q4: Which variable best predicts tumor?
+**Q1: Does the size of a tumor predicts whether it is malignant versus
+benign?**  
+**Q2: If yes, is this relation mostly driven by some extreme values of
+tumor size?**  
+**Q3: Does the smoothness of a tumor predicts whether it is malignant
+versus benign?**  
+**Q4:** **Does non-smooth tumor is very likely to be benign tumor?**
 
 <!----------------------------->
 
@@ -449,11 +530,9 @@ for!
 
 **Q1: Does the size of a tumor predicts whether it is malignant versus
 benign?**  
-Summarizing:  
+*`Summarizing:`*  
 What is the *range*, *mean*, median and standard deviation of t**he size
-of a tumor** across **malignant versus benign?**  
-The *mean* across **malignant versus benign** can help explain whether
-it is related to tumor diagnosis.
+of a tumor** across **malignant versus benign?**
 
 ``` r
 cancer_sample %>%
@@ -473,9 +552,13 @@ cancer_sample %>%
     ## 3 M                   17.5          17.3        11.0       3.20
     ## 4 M                   17.5          17.3        28.1       3.20
 
-Graphing:  
+Looks like The *mean* across **malignant versus benign** can help
+explain whether it is related to tumor diagnosis. The size is smaller
+for benign tumor.  
+  
+*`Graphing:`*  
 I will create a graph, making one of the radius logarithmic, and
-formating the axes labels so that they are “pretty” or easier to read.
+formatting the axes labels so that they are “pretty” or easier to read.
 
 ``` r
 cancer_sample %>%
@@ -489,7 +572,7 @@ cancer_sample %>%
 Yes, it seems that greater size is correlated with bad tumor  
   
 **Q2: Does the result driven by some extreme values of tumor size?**  
-Summarizing:  
+*`Summarizing:`*  
 I will compute the number of observations for diagnosis outcome!
 
 ``` r
@@ -499,7 +582,7 @@ summary(as.factor(cancer_sample$diagnosis))
     ##   B   M 
     ## 357 212
 
-Graphing:  
+*`Graphing:`*  
 I will plot the (extreme) values of tumor size and customize the alpha
 transparency.
 
@@ -514,7 +597,8 @@ I find that the results are not driven by the extreme values.
 
 **Q3: Does the smoothness of a tumor predicts whether it is malignant
 versus benign?**  
-Summarizing:
+  
+*`Summarizing:`*
 
 ``` r
 cancer_sample %>%
@@ -534,8 +618,10 @@ cancer_sample %>%
     ## 3 M                     0.103             0.102            0.0737        0.0126
     ## 4 M                     0.103             0.102            0.145         0.0126
 
+It’s very hard to tell whether the smoothness is associated with tumor
+diagnosis.  
   
-Graphing:
+*`Graphing:`*
 
 ``` r
 ggplot(cancer_sample, aes( smoothness_mean,diagnosis)) +
@@ -546,12 +632,12 @@ ggplot(cancer_sample, aes( smoothness_mean,diagnosis)) +
 
 ![](mini-project-1_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
-***It’s very hard to tell whether the smoothness is associated with
-tumor diagnosis.***
+Again, from this plot, it’s very hard to tell whether the smoothness is
+associated with tumor diagnosis.
 
-**Q4: Does very smooth tumor associated with diagnosis outcome?**
+**Q4: Does non-smooth tumor is very likely to be benign?**
 
-Summarizing:  
+*`Summarizing:`*  
 I will create a categorical variable with 3 groups from smoothness —
 “very smooth”, “smooth”, and “not smooth”.
 
@@ -599,7 +685,7 @@ ggplot(cancer_sample, aes(y=Smooth_category) ) + geom_bar(aes(fill=diagnosis), p
 ![](mini-project-1_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 The result suggests that for ***non-smooth*** **tumor**, it is very
-unlikely to be **malignant.**
+likely to be **benign—a very good news to non smooth tumor patients.**
 
 <!----------------------------------------------------------------------------->
 
@@ -613,15 +699,15 @@ research questions are yielding interesting results?
 
 <!-------------------------- Start your work below ---------------------------->
 
-I think I learned a lot from this data and closer to my questions
+**I think I learned a lot from this data and closer to my questions.**
 
-Research question four yields interesting results—it shows non-smooth
+**Research question 4 yields interesting results—it shows non-smooth
 tumor is very unlikely to be malignant. I think it is a good news for
-those patients having non-smooth tumor.
+those patients having non-smooth tumor.**
 
-Some other things remain unclear. For example, since we have many
-predictors of tumor, they are highlycorrelated. Can we use just a few
-factors to describe these predictors?
+**Some other things remain unclear. For example, since we have many
+predictors of tumor, they are highly correlated. Can we use just a few
+factors to describe these predictors?**
 
 <!----------------------------------------------------------------------------->
 
