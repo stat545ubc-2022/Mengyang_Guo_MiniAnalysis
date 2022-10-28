@@ -678,8 +678,14 @@ function.
 ``` r
 ##create the summary table file
 datateachr::cancer_sample %>%
+  group_by(diagnosis)%>%
   summarise(radius_average=mean(radius_mean),radius_median=median(radius_mean),radius_range=range(radius_mean),radius_sd=sd(radius_mean))->sum_table
+```
 
+    ## `summarise()` has grouped output by 'diagnosis'. You can override using the
+    ## `.groups` argument.
+
+``` r
 dir.create(here::here("output"))
 ```
 
